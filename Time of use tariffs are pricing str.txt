@@ -1,0 +1,24 @@
+Time of use tariffs are pricing structures for electricity that vary based on the time of day, offering lower rates during off-peak hours and higher rates during peak demand times.
+
+What Are Time of Use Tariffs?
+Time of use (ToU) tariffs are designed to encourage consumers to shift their electricity usage to off-peak hours when demand is lower. This pricing structure helps balance the load on the electricity grid and can lead to cost savings for consumers who can adjust their energy consumption habits. Typically, these tariffs charge lower prices during off-peak hours (often overnight) and higher prices during peak hours, which usually occur in the morning and early evening when most people are using electricity.
+ 
+How Do They Work?
+Peak and Off-Peak Times: Peak times are when electricity demand is high, leading to higher prices. Off-peak times, when demand is lower, usually feature reduced rates. For example, off-peak hours might be from 10 PM to 8 AM. 
+
+Smart Meters: To benefit from time of use tariffs, consumers typically need a smart meter, which tracks energy usage in real-time and sends data to the energy supplier. This allows for accurate billing based on actual usage during different times of the day. 
+
+
+Benefits of Time of Use Tariffs
+1.Cost Savings: By shifting energy use to off-peak times, consumers can save money on their electricity bills.
+2.Environmental Impact: These tariffs help reduce reliance on fossil fuels by encouraging the use of renewable energy sources during times of high availability. 
+3.Flexibility: Unlike older tariffs like Economy 7, which only offer a single cheaper rate overnight, time of use tariffs can provide multiple pricing bands throughout the day, making them more adaptable to various energy needs. 
+
+
+Considerations
+1.Availability: Not all energy suppliers offer time of use tariffs, and their availability may vary by region. 
+
+2.Usage Patterns: To maximize savings, consumers should assess their energy usage patterns to determine if a time of use tariff is suitable for their lifestyle. 
+
+
+In summary, time of use tariffs can be a beneficial option for consumers looking to save on energy costs while contributing to a more sustainable energy system. If you're considering switching to a time of use tariff, check with your energy supplier for specific details and options available in your area.
