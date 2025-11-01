@@ -1,0 +1,36 @@
+{
+    "tariff_plan": "Standard Time of Use",
+    "currency": "₹",
+    "time_slots": [
+        {
+            "start": "00:00",
+            "end": "06:00",
+            "rate": 4.5,
+            "type": "off-peak"
+        },
+        {
+            "start": "06:00",
+            "end": "09:00",
+            "rate": 8.0,
+            "type": "peak"
+        },
+        {
+            "start": "09:00",
+            "end": "17:00",
+            "rate": 6.0,
+            "type": "mid-peak"
+        },
+        {
+            "start": "17:00",
+            "end": "22:00",
+            "rate": 9.0,
+            "type": "peak"
+        },
+        {
+            "start": "22:00",
+            "end": "24:00",
+            "rate": 5.0,
+            "type": "off-peak"
+        }
+    ]
+}

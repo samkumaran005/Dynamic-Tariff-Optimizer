@@ -1,0 +1,50 @@
+<!-- ================== templates/index.html ================== -->
+{% extends "base.html" %}
+
+{% block title %}Home - Smart Energy Scheduler{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <h1>Welcome to Smart Energy Scheduler</h1>
+    <p class="subtitle">Optimize your electricity usage and save money with Time of Use tariffs</p>
+</div>
+
+<div class="info-cards">
+    <div class="card">
+        <h3>💰 Save Money</h3>
+        <p>Shift your energy usage to off-peak hours and reduce your electricity bills by up to 40%</p>
+    </div>
+    <div class="card">
+        <h3>🌱 Help Environment</h3>
+        <p>Reduce carbon emissions by using electricity when renewable energy is most available</p>
+    </div>
+    <div class="card">
+        <h3>📊 Smart Insights</h3>
+        <p>Get personalized recommendations based on your appliances and usage patterns</p>
+    </div>
+</div>
+
+<div class="tariff-section">
+    <h2>Current Tariff Structure</h2>
+    <div class="tariff-plan">
+        <h3>{{ tariffs.tariff_plan }}</h3>
+        <div class="tariff-timeline">
+            {% for slot in tariffs.time_slots %}
+            <div class="tariff-slot {{ slot.type }}">
+                <div class="slot-time">{{ slot.start }} - {{ slot.end }}</div>
+                <div class="slot-rate">{{ tariffs.currency }}{{ slot.rate }}/kWh</div>
+                <div class="slot-type">{{ slot.type | upper }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="cta-section">
+    <h2>Get Started</h2>
+    <div class="cta-buttons">
+        <a href="/appliances" class="btn btn-primary">Manage Appliances</a>
+        <a href="/scheduler" class="btn btn-secondary">Optimize Schedule</a>
+    </div>
+</div>
+{% endblock %}

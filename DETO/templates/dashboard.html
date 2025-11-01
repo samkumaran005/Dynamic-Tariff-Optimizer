@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+
+{% block title %}About - Smart Energy Scheduler{% endblock %}
+
+{% block content %}
+<div class="about-hero">
+    <h1>About Smart Energy Scheduler</h1>
+    <p class="subtitle">Understanding Time of Use Tariffs and Smart Energy Management</p>
+</div>
+
+<div class="about-section">
+    <h2>What Are Time of Use Tariffs?</h2>
+    <p>Time of Use (ToU) tariffs are pricing structures for electricity that vary based on the time of day. They offer lower rates during off-peak hours when electricity demand is lower, and higher rates during peak demand times when the grid is under stress.</p>
+    
+    <div class="tariff-explanation">
+        <div class="tariff-type-card off-peak-card">
+            <h3>🌙 Off-Peak Hours</h3>
+            <p class="time-range">Midnight - 6:00 AM, 10:00 PM - Midnight</p>
+            <p class="rate-info">Lowest rates (₹4.5 - ₹5.0 per kWh)</p>
+            <p>Best time to run heavy appliances like washing machines, dishwashers, and EV chargers. Demand is lowest, often powered by renewable energy.</p>
+        </div>
+        
+        <div class="tariff-type-card mid-peak-card">
+            <h3>☀️ Mid-Peak Hours</h3>
+            <p class="time-range">9:00 AM - 5:00 PM</p>
+            <p class="rate-info">Moderate rates (₹6.0 per kWh)</p>
+            <p>Reasonable time for medium-load appliances. Commercial demand is high, but residential usage can be optimized during these hours.</p>
+        </div>
+        
+        <div class="tariff-type-card peak-card">
+            <h3>⚡ Peak Hours</h3>
+            <p class="time-range">6:00 AM - 9:00 AM, 5:00 PM - 10:00 PM</p>
+            <p class="rate-info">Highest rates (₹8.0 - ₹9.0 per kWh)</p>
+            <p>Avoid running high-power appliances. Everyone is using electricity - morning routines and evening activities create maximum grid stress.</p>
+        </div>
+    </div>
+</div>
+
+<div class="about-section">
+    <h2>How Do Time of Use Tariffs Work?</h2>
+    <div class="working-grid">
+        <div class="working-card">
+            <div class="icon">📊</div>
+            <h3>Dynamic Pricing</h3>
+            <p>Electricity prices change throughout the day based on demand. Higher demand = higher prices. Lower demand = lower prices.</p>
+        </div>
+        
+        <div class="working-card">
+            <div class="icon">📱</div>
+            <h3>Smart Meters</h3>
+            <p>Smart meters track your exact usage in real-time and bill you according to when you used electricity, not just how much.</p>
+        </div>
+        
+        <div class="working-card">
+            <div class="icon">⏰</div>
+            <h3>Flexible Scheduling</h3>
+            <p>By shifting your energy-intensive tasks to off-peak hours, you can significantly reduce your electricity bills.</p>
+        </div>
+        
+        <div class="working-card">
+            <div class="icon">💰</div>
+            <h3>Cost Savings</h3>
+            <p>Typical households can save 30-50% on electricity bills by optimizing when they use high-power appliances.</p>
+        </div>
+    </div>
+</div>
+
+<div class="about-section benefits-section">
+    <h2>Benefits of Using Our Scheduler</h2>
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <h3>💵 Save Money</h3>
+            <p>Reduce your electricity bills by up to 50% by running appliances during off-peak hours. A typical household can save ₹3,000-5,000 annually.</p>
+        </div>
+        
+        <div class="benefit-card">
+            <h3>🌍 Environmental Impact</h3>
+            <p>Off-peak hours often utilize more renewable energy sources. By shifting usage, you help reduce carbon emissions and dependence on fossil fuels.</p>
+        </div>
+        
+        <div class="benefit-card">
+            <h3>📈 Grid Stability</h3>
+            <p>Your participation helps balance the electricity grid, reducing the need for expensive peak-time power plants and preventing blackouts.</p>
+        </div>
+        
+        <div class="benefit-card">
+            <h3>🎯 Smart Recommendations</h3>
+            <p>Get personalized scheduling suggestions based on your specific appliances and usage patterns. No guesswork required.</p>
+        </div>
+        
+        <div class="benefit-card">
+            <h3>⚡ Easy to Use</h3>
+            <p>Simple interface to add appliances, view optimal times, and calculate potential savings. No technical knowledge needed.</p>
+        </div>
+        
+        <div class="benefit-card">
+            <h3>📊 Transparent Pricing</h3>
+            <p>See exactly how much each time slot costs. Make informed decisions about when to run your appliances.</p>
+        </div>
+    </div>
+</div>
+
+<div class="about-section">
+    <h2>Real-World Examples</h2>
+    <div class="example-grid">
+        <div class="example-card">
+            <h3>🧺 Washing Machine</h3>
+            <p><strong>Typical Usage:</strong> 2.0 kW for 1.5 hours</p>
+            <p><strong>Peak Time (7 AM):</strong> ₹27.00</p>
+            <p><strong>Off-Peak (1 AM):</strong> ₹13.50</p>
+            <p class="savings-highlight">💰 Save ₹13.50 (50%) per load</p>
+        </div>
+        
+        <div class="example-card">
+            <h3>🔌 EV Charger</h3>
+            <p><strong>Typical Usage:</strong> 7.0 kW for 4 hours</p>
+            <p><strong>Peak Time (6 PM):</strong> ₹252.00</p>
+            <p><strong>Off-Peak (11 PM):</strong> ₹126.00</p>
+            <p class="savings-highlight">💰 Save ₹126.00 (50%) per charge</p>
+        </div>
+        
+        <div class="example-card">
+            <h3>🍽️ Dishwasher</h3>
+            <p><strong>Typical Usage:</strong> 1.8 kW for 2 hours</p>
+            <p><strong>Peak Time (8 PM):</strong> ₹32.40</p>
+            <p><strong>Off-Peak (11 PM):</strong> ₹18.00</p>
+            <p class="savings-highlight">💰 Save ₹14.40 (44%) per cycle</p>
+        </div>
+    </div>
+</div>
+
+<div class="about-section">
+    <h2>How to Get Started</h2>
+    <div class="steps-container">
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Add Your Appliances</h3>
+            <p>Go to the Appliances page and add all your high-power devices with their power consumption and typical usage duration.</p>
+        </div>
+        
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Get Recommendations</h3>
+            <p>Visit the Scheduler page, select appliances, and see the top 3 optimal time slots with cost breakdown for each.</p>
+        </div>
+        
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Implement Schedule</h3>
+            <p>Use delay timers, smart plugs, or manually run appliances during recommended off-peak hours to maximize savings.</p>
+        </div>
+        
+        <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Track & Save</h3>
+            <p>Monitor your electricity bills and watch your savings grow month after month while helping the environment.</p>
+        </div>
+    </div>
+</div>
+
+<div class="about-section faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+        <div class="faq-item">
+            <h3>❓ Do I need a smart meter?</h3>
+            <p>While smart meters make ToU billing easier, you can still benefit by manually tracking and scheduling your usage during off-peak hours based on our recommendations.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h3>❓ Is ToU available in my area?</h3>
+            <p>ToU tariffs are becoming increasingly common. Check with your local electricity provider to see if they offer time-based pricing plans.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h3>❓ What appliances should I focus on?</h3>
+            <p>Focus on high-power, schedulable appliances: washing machines, dishwashers, EV chargers, water heaters, pool pumps, and dryers. These offer the most savings potential.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h3>❓ How accurate are the calculations?</h3>
+            <p>Our calculations are based on standard ToU rates and your appliance specifications. Actual savings may vary based on your specific utility rates and usage patterns.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h3>❓ Can I customize tariff rates?</h3>
+            <p>Yes! You can edit the data/tariffs.json file to match your local electricity provider's specific rates and time slots.</p>
+        </div>
+    </div>
+</div>
+
+<div class="about-section tech-section">
+    <h2>About This Project</h2>
+    <p>Smart Energy Scheduler is a web-based tool designed to help consumers optimize their electricity usage under Time of Use tariff structures. Built with simplicity and practicality in mind, it provides clear recommendations without complex calculations.</p>
+    
+    <div class="tech-stack">
+        <h3>Technology Stack</h3>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <strong>Backend:</strong> Python, Flask
+            </div>
+            <div class="tech-item">
+                <strong>Frontend:</strong> HTML5, CSS3, JavaScript
+            </div>
+            <div class="tech-item">
+                <strong>Data:</strong> JSON Storage
+            </div>
+            <div class="tech-item">
+                <strong>Algorithm:</strong> Rule-based Optimization
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta-section">
+    <h2>Ready to Start Saving?</h2>
+    <div class="cta-buttons">
+        <a href="/appliances" class="btn btn-primary btn-lg">Add Your Appliances</a>
+        <a href="/scheduler" class="btn btn-secondary btn-lg">Optimize Schedule</a>
+    </div>
+</div>
+{% endblock %}

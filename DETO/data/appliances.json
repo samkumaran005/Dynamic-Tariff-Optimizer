@@ -1,0 +1,34 @@
+{
+    "appliances": [
+        {
+            "id": 1,
+            "name": "Washing Machine",
+            "power_kw": 2.0,
+            "duration_hours": 1.5
+        },
+        {
+            "id": 2,
+            "name": "Dishwasher",
+            "power_kw": 1.8,
+            "duration_hours": 2.0
+        },
+        {
+            "id": 3,
+            "name": "EV Charger",
+            "power_kw": 7.0,
+            "duration_hours": 4.0
+        },
+        {
+            "id": 4,
+            "name": "Water Heater",
+            "power_kw": 3.0,
+            "duration_hours": 1.0
+        },
+        {
+            "id": 5,
+            "name": "Air Conditioner",
+            "power_kw": 1.5,
+            "duration_hours": 8.0
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+<!-- ================== templates/scheduler.html ================== -->
+{% extends "base.html" %}
+
+{% block title %}Scheduler - Smart Energy Scheduler{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Optimize Your Schedule</h1>
+    <p>Select appliances to see the best times to run them</p>
+</div>
+
+<div class="scheduler-container">
+    <div class="appliance-selector">
+        <h2>Select Appliances</h2>
+        {% for appliance in appliances %}
+        <label class="checkbox-label">
+            <input type="checkbox" class="appliance-checkbox" value="{{ appliance.id }}" data-name="{{ appliance.name }}">
+            {{ appliance.name }} ({{ appliance.power_kw }} kW, {{ appliance.duration_hours }}h)
+        </label>
+        {% endfor %}
+        <button class="btn btn-primary" onclick="optimizeSchedule()">Get Recommendations</button>
+    </div>
+    
+    <div id="recommendations" class="recommendations-section" style="display: none;">
+        <h2>Recommended Schedule</h2>
+        <div id="recommendationsList"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function optimizeSchedule() {
+    const checkboxes = document.querySelectorAll('.appliance-checkbox:checked');
+    const applianceIds = Array.from(checkboxes).map(cb => parseInt(cb.value));
+    
+    if (applianceIds.length === 0) {
+        alert('Please select at least one appliance');
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/optimize', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({appliances: applianceIds})
+        });
+        
+        const recommendations = await response.json();
+        displayRecommendations(recommendations);
+    } catch (error) {
+        alert('Error optimizing schedule');
+    }
+}
+
+function displayRecommendations(recommendations) {
+    const container = document.getElementById('recommendationsList');
+    container.innerHTML = '';
+    
+    recommendations.forEach(rec => {
+        const card = document.createElement('div');
+        card.className = 'recommendation-card';
+        
+        let slotsHTML = rec.best_slots.map((slot, index) => `
+            <div class="time-slot ${slot.rate_type}">
+                <div class="slot-rank">#${index + 1}</div>
+                <div class="slot-info">
+                    <strong>${slot.start_time} - ${slot.end_time}</strong>
+                    <span class="rate-badge ${slot.rate_type}">${slot.rate_type}</span>
+                </div>
+                <div class="slot-cost">
+                    <strong>₹${slot.cost}</strong>
+                    <small>Save ₹${slot.savings_vs_peak}</small>
+                </div>
+            </div>
+        `).join('');
+        
+        card.innerHTML = `
+            <h3>${rec.appliance_name}</h3>
+            <div class="appliance-summary">
+                ${rec.power_kw} kW × ${rec.duration_hours}h = ${(rec.power_kw * rec.duration_hours).toFixed(2)} kWh
+            </div>
+            <h4>Best Time Slots:</h4>
+            ${slotsHTML}
+        `;
+        
+        container.appendChild(card);
+    });
+    
+    document.getElementById('recommendations').style.display = 'block';
+}
+</script>
+{% endblock %}

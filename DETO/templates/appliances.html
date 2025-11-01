@@ -1,0 +1,100 @@
+<!-- ================== templates/appliances.html ================== -->
+{% extends "base.html" %}
+
+{% block title %}Appliances - Smart Energy Scheduler{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Manage Your Appliances</h1>
+    <p>Add and manage appliances to get personalized scheduling recommendations</p>
+</div>
+
+<div class="add-appliance-form">
+    <h2>Add New Appliance</h2>
+    <form id="applianceForm">
+        <div class="form-group">
+            <label for="name">Appliance Name:</label>
+            <input type="text" id="name" name="name" required placeholder="e.g., Washing Machine">
+        </div>
+        <div class="form-group">
+            <label for="power_kw">Power Consumption (kW):</label>
+            <input type="number" id="power_kw" name="power_kw" step="0.1" required placeholder="e.g., 2.0">
+        </div>
+        <div class="form-group">
+            <label for="duration_hours">Duration (hours):</label>
+            <input type="number" id="duration_hours" name="duration_hours" step="0.5" required placeholder="e.g., 1.5">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Appliance</button>
+    </form>
+</div>
+
+<div class="appliances-list">
+    <h2>Your Appliances</h2>
+    <div id="appliancesList" class="appliance-grid">
+        {% for appliance in appliances %}
+        <div class="appliance-card" data-id="{{ appliance.id }}">
+            <h3>{{ appliance.name }}</h3>
+            <div class="appliance-details">
+                <p><strong>Power:</strong> {{ appliance.power_kw }} kW</p>
+                <p><strong>Duration:</strong> {{ appliance.duration_hours }} hours</p>
+                <p><strong>Energy:</strong> {{ (appliance.power_kw * appliance.duration_hours) | round(2) }} kWh</p>
+            </div>
+            <button class="btn btn-danger btn-sm" onclick="deleteAppliance('{{ appliance.id }}')">Delete</button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="cta-section">
+    <a href="/scheduler" class="btn btn-primary btn-lg">Continue to Scheduler →</a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('applianceForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        power_kw: document.getElementById('power_kw').value,
+        duration_hours: document.getElementById('duration_hours').value
+    };
+    
+    try {
+        const response = await fetch('/api/add_appliance', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        if (result.success) {
+            alert('Appliance added successfully!');
+            location.reload();
+        }
+    } catch (error) {
+        alert('Error adding appliance');
+    }
+});
+
+async function deleteAppliance(id) {
+    if (!confirm('Are you sure you want to delete this appliance?')) return;
+    
+    try {
+        const response = await fetch(`/api/delete_appliance/${id}`, {
+            method: 'DELETE'
+        });
+        
+        const result = await response.json();
+        if (result.success) {
+            location.reload();
+        }
+    } catch (error) {
+        alert('Error deleting appliance');
+    }
+}
+</script>
+{% endblock %}
+
+
